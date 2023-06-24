@@ -1,11 +1,3 @@
-  <style>
-  .TOC{
-	  position: sticky;
-	  top: 0;
-	  left: 0;
-  }
-  </style>
-  
 
 1. [[#1 Connect and configure VPS|1 Connect and configure VPS]]
 	1. [[#1 Connect and configure VPS#Connect by password|Connect by password]]
@@ -13,7 +5,9 @@
 	1. [[#1 Connect and configure VPS#Install SWAP|Install SWAP]]
 	1. [[#1 Connect and configure VPS#2 Set up SSH|2 Set up SSH]]
 1. [[#Chuẩn bị các package cần thiết cho Ubuntu|Chuẩn bị các package cần thiết cho Ubuntu]]
-1. [[#Tạo PostgreSQL database|Tạo PostgreSQL database]]
+1. [[#Tạo database|Tạo database]]
+	1. [[#Tạo database#SQLite|SQLite]]
+	1. [[#Tạo database#PostgreSQL database|PostgreSQL database]]
 1. [[#Tạo python virtual eviroment|Tạo python virtual eviroment]]
 	1. [[#Tạo python virtual eviroment#Tạo python virtual eviroment|Tạo python virtual eviroment]]
 1. [[#Clone code and configuring project|Clone code and configuring project]]
@@ -21,6 +15,7 @@
 	1. [[#Clone code and configuring project#Create new .env file|Create new .env file]]
 		1. [[#Create new .env file#generate a new secret key|generate a new secret key]]
 	1. [[#Clone code and configuring project#Migration|Migration]]
+	1. [[#Clone code and configuring project#Create super user|Create super user]]
 	1. [[#Clone code and configuring project#Collectstatic|Collectstatic]]
 1. [[#Gunicorn|Gunicorn]]
 	1. [[#Gunicorn#Testing Gunicorn’s Ability to Serve the Project|Testing Gunicorn’s Ability to Serve the Project]]
@@ -137,7 +132,12 @@ Install Nala nếu có thể: <https://christitus.com/stop-using-apt/>
 sudo apt update && sudo apt upgrade -y
 sudo apt install python3-venv python3-dev libpq-dev postgresql postgresql-contrib nginx curl
 ```
-# Tạo PostgreSQL database
+# Tạo database
+
+## SQLite
+
+
+## PostgreSQL database
 >By default, Postgres uses an authentication scheme called “peer authentication” for local connections. Basically, this means that if the user’s operating system username matches a valid Postgres username, that user can login with no further authentication.
 >During the Postgres installation, an operating system user named postgres was created to correspond to the postgres PostgreSQL administrative user. You need to use this user to perform administrative tasks. You can use sudo and pass in the username with the -u option
 
@@ -199,8 +199,6 @@ exit out of the PostgreSQL prompt by typing
 ```sql
 \q
 ```
-
-
 #  Tạo python virtual eviroment 
 ## Tạo python virtual eviroment
 Tải a specific python version
@@ -221,7 +219,6 @@ source venv/bin/activate
 ```
 - (Miniconda) Tạo virtual enviroment với một python version khác một cách bạo lực: <https://waylonwalker.com/install-miniconda/> 
 
-
 # Clone code and configuring project
 ## Clone code
 Copy to server
@@ -232,6 +229,12 @@ Unzip file
 ## Create new .env file
 Copy .env file to server
 `scp -r localmachine/path_to_the_directory/* username@server_ip:/path_to_remote_dir`
+
+## Add server ip to allowed_hosts to test 
+```
+ALLOWED_HOSTS = ['your_server_domain_or_IP', 'SERVER_IP', . . ., 'localhost']
+```
+
 
 
 ### generate a new secret key
@@ -261,8 +264,6 @@ python manage.py collectstatic
 Sau đó comment *'django.contrib.staticfiles'* trong *INSTALLED_APP* lại
 
 
-
-
 # Gunicorn
 If you followed the initial server setup guide, you should have a UFW firewall protecting your server. In order to test the development server, we’ll have to allow access to the port we’ll be using.
 
@@ -277,8 +278,10 @@ python manage.py runserver 0.0.0.0:8000
 ## Testing Gunicorn’s Ability to Serve the Project
 
 ```bash
-(virtualenv) nhan@linode-NoobMaster:~/nhan_TheNoobMaster/src_Django$ gunicorn --bind 0.0.0.0:8000 nhan_TheNoobMaster.wsgi
+cd myprojectdir/myproject
+gunicorn --bind 0.0.0.0:8000 [myproject_name].wsgi
 ```
+Lưu ý bạn phải cd đến thư mục chứa manage.py để chạy câu lệnh gunicorn.
 We passed Gunicorn a module by specifying the relative (to the folder we run this command) directory path to Django’s `wsgi.py` file, which is the entry point to our application, using Python’s module syntax.
 
 Exiting environment
@@ -323,7 +326,7 @@ After=network.target
 
 
 [Service]
-User=sammy
+User=[user_name]
 Group=www-data
 WorkingDirectory=/home/ <user_name> / <project_dir>
 ExecStart=/home/ <user_name> / <project_dir> / <project_env> /bin/gunicorn \
@@ -336,6 +339,8 @@ ExecStart=/home/ <user_name> / <project_dir> / <project_env> /bin/gunicorn \
 [Install]
 WantedBy=multi-user.target
 ```
+Lưu ý: Working Directory phải trỏ đến thư mục project django cùng chứa `manage.py`
+
 
 We can now start and enable the Gunicorn socket. This will create the socket file at `/run/gunicorn.sock` now and at boot. When a connection is made to that socket, systemd will automatically start the `gunicorn.service` to handle it:
 ```bash
@@ -433,8 +438,8 @@ server {
 
 To configure sofware behaviour we create Nginx config file inside `/etc` folder
 
-`sudo nano /etc/nginx/sites-available/<mywebsite>`
 
+`sudo nano /etc/nginx/sites-available/<mywebsite>`
 ```
 server {
     listen 80;
@@ -442,7 +447,7 @@ server {
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
-        root /home/<user_name>/<myProjectDir>;
+        root /home/[user_name]/[myProjectDir]/[STATIC_ROOT];
     }
 
     location / {
@@ -457,21 +462,18 @@ Save and close the file when you are finished. Now, we can enable the file by li
 
 ```
 sudo ln -s /etc/nginx/sites-available/<project_name> /etc/nginx/sites-enabled
-
 ```
 
 Test your Nginx configuration for syntax errors by typing:
 
 ```
 sudo nginx -t
-
 ```
 
 If no errors are reported, go ahead and restart Nginx by typing:
 
 ```
 sudo systemctl restart nginx
-
 ```
 
 Finally, we need to open up our firewall to normal traffic on port 80. Since we no longer need access to the development server, we can remove the rule to open port 8000 as well:
