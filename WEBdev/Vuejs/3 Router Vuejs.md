@@ -1,7 +1,10 @@
-[/toc/] 
-{{toc}} 
-[[__TOC__]] 
-[toc]
+- [[#Vue Router là gì|Vue Router là gì]]
+- [[#Cài đặt Vue Router|Cài đặt Vue Router]]
+- [[#Set up routes|Set up routes]]
+- [[#Set up routes#router/index.js|router/index.js]]
+- [[#Set up routes#src/main.js|src/main.js]]
+- [[#Set up routes#router-view trong App.vue|router-view trong App.vue]]
+
 
 
 https://viblo.asia/p/tim-hieu-ve-vue-router-gAm5ybvwKdb

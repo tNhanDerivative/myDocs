@@ -1,8 +1,7 @@
 
-[/toc/] 
-{{toc}} 
-[[__TOC__]] 
-[toc]
+- [[#Định nghĩa|Định nghĩa]]
+- [[#Trường hợp xuất hiện|Trường hợp xuất hiện]]
+
   
 ## Định nghĩa
 Null: có nghĩa là biến có giá trị rỗng

@@ -1,9 +1,6 @@
 https://viblo.asia/s/bi-kip-luyen-cong-vuejs-rLZDX4AEZk0
 
-[/toc/] 
-{{toc}} 
-[[__TOC__]] 
-[toc]
+
 ## Tổng quan
 
 

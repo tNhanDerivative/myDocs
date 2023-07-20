@@ -1,7 +1,8 @@
-[/toc/] 
-{{toc}} 
-[[__TOC__]] 
-[toc]
+- [[#Open the command palette|Open the command palette]]
+- [[#Enter "Preferences: Open User Settings"|Enter "Preferences: Open User Settings"]]
+- [[#Navigate to "workbench.editor.enablePreview"|Navigate to "workbench.editor.enablePreview"]]
+- [[#Turn the setting off.|Turn the setting off.]]
+
 # Always open in new tab
 
  ### Open the command palette

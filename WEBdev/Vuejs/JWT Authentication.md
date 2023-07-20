@@ -1,7 +1,4 @@
-[/toc/] 
-{{toc}} 
-[[__TOC__]] 
-[toc]
+
 
 ## Tutorial
 

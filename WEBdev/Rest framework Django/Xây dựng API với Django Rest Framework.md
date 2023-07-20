@@ -1,11 +1,13 @@
 https://github.com/bobby-didcoding/drf_course/tree/main/steps
 
 https://viblo.asia/p/xay-dung-api-voi-django-rest-framework-Do754PXJ5M6#_27-test-api-13
+## Install
+```
+pip install djangorestframework
+```
 
-[/toc/] 
-{{toc}} 
-[[__TOC__]] 
-[toc]
+
+
 
 ## Setting
 ```python
