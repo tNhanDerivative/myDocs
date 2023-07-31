@@ -3,26 +3,22 @@
 
 ## Fedora update package
 `sudo dnf update`
+## Update software by .rpm file
+```bash
+sudo rpm -Uvh Path/to-rpm-file/**.rpm
+```
+```
+sudo dnf install Path/to-rpm-file/**.rpm
+```
 
 ## Find installed package
 
 ```
 dnf list installed | grep -i nvidia
 ```
-## Update software by .rpm file
-```bash
-sudo rpm -Uvh Path/to-rpm-file/**.rpm
-```
 
-## Change En/Vi typing (Gnome)
-```
-Super + Space 							
-```
 
-## Split Screen
-```
-Super + Arrow_key 							
-```
+
 
 
 ## Flatpak 

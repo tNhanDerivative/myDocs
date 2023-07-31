@@ -11,6 +11,7 @@ add github ssh-key for production machine [[SSH]]
 clone code về máy => tạo branch máy đó `git branch -b [branch_name]`
 
 ### git rebase
+https://backlog.com/git-tutorial/vn/stepup/stepup2_8.html 
 1. Fetch the latest changes from             `(main)`: `git fetch origin main`
 2. Check out your feature branch:           `(main)`:`git checkout my-feature`
 3. Rebase                                                   `(my-feature)`: `git rebase origin/main`
