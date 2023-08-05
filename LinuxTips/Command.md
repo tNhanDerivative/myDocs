@@ -52,6 +52,25 @@ sudo chown -R $(id -u):$(id -g) demo/
 - `id` is a command-line utility in Linux that displays the real and effective user and group IDs.
 - `-u` is an option for the `id` command that specifies to only display the user ID.
 - `-u` is an option for the `id` command that specifies to only display the group ID.
+
+## Jounalctl investigate
+
+```
+journalctl -xb -p err..alert
+```
+
+The `journalctl -xb -p err..alert` command is used to view, filter, and analyze log data recorded by the systemd journal in Linux. Let's break down the command:
+
+- `journalctl`: This is the base command used to interact with the systemd journal. The systemd journal is a system service that collects and manages system logs. The journal stores logs in a binary format, allowing for faster searching and filtering than text-based logs [itslinuxfoss.com](https://itslinuxfoss.com/use-linux-journalctl-command/).
+
+- `-xb`: This option tells `journalctl` to show logs from the current boot (`-b`) and to display extra information (`-x`) about each log entry if available. Using `-b` with no argument refers to the current boot. You can specify a previous boot by using `-b -1`, `-b -2`, etc. [docs.buddy.red](https://docs.buddy.red/docs/linux/linux-command/journalctl/), [wangchujiang.com](https://wangchujiang.com/linux-command/c/journalctl.html).
+
+- `-p err..alert`: This option filters the log output by priority, showing only log messages with a priority level from "error" to "alert". The priority levels in ascending order are: debug, info, notice, warning, err, crit, alert, and emerg. Therefore, this command will show only the more severe messages. If a single priority level is specified (e.g., `-p err`), then all messages with that priority and higher (i.e., more severe) are shown
+- 
+### Filtering by Unit
+```
+journalctl -u nginx.service -u php-fpm.service --since today
+```
 # config Terminal css
 
 program config either reside in `/etc/[program_name]` or `~/.config/[program_name]`

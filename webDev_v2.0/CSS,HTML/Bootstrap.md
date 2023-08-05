@@ -31,6 +31,8 @@ Containers thường được sử dụng để bọc nội dung bên trong chú
 
 
 ## Grid 
+https://niithanoi.edu.vn/hoc-bootstrap.html#28-can-chinh-cac-cot-trong-bootstrap
+
 Làm thế nào để tạo hàng và cột bằng cách sử dụng hệ thống lưới responsive 12 cột của bootstrap
 - Lúc đầu hãy tạo một container  bao bọc cho các hàng (row) và cột (column) của bạn bằng cách sử dụng lớp `.container`
 - Sau đó tạo các hàng bên trong vùng chứa bằng cách sử dụng lớp `.row` và để tạo các cột bên trong bất kỳ hàng nào bạn có thể sử dụng các lớp `.col-*`, `.col-sm-*`, `.col-md-*`, `.col-lg-*` và `.col-xl-*`.

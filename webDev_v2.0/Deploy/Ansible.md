@@ -16,4 +16,4 @@
 
 
 ## Web UI for Ansible
-[[Ansible-semaphore]]
+[[Ansible semaphore]]

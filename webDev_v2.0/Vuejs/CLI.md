@@ -102,6 +102,6 @@ export default {
 ```
 
 Chúng ta có 2 cái mới được thêm vào đấy là ô input khi hiển thị ngoài trình duyệt và thêm một node `<Input>` vào cây *Component* khi mở Vue Extension* lên
-![input.Vue](input.png "input.vue")
+![input.Vue](Input.png "input.vue")
 
 
