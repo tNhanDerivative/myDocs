@@ -1,0 +1,4 @@
+
+https://www.geeksforgeeks.org/scope-resolution-operator-in-c/
+
+#Cplusplus/ScopeResolutuion

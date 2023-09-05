@@ -54,7 +54,7 @@ export default router
 
 ``` history: createWebHistory(process.env.BASE_URL)```  sử dụng Web History api trong Browser để ta có thể click Forward và Backward `process.env.BASE_URL` là base-url của project
 ### src/main.js
-Sau đó router được import vào file src/main.js và mount lên #app
+Sau đó router được import vào file src/main.js và mount lên `#app`
 ```javascript
 import router from './router'
 axios.defaults.baseURL = "http://127.0.0.1:8000"
