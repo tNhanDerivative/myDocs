@@ -1,3 +1,7 @@
+## update and shut down
+```
+sudo dnf update && shutdown -P now
+```
 
 
 

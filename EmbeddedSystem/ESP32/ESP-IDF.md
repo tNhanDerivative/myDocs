@@ -1,6 +1,8 @@
 # Binary Toolchain
 https://gitdemo.readthedocs.io/en/latest/linux-setup.html#step-0-prerequisites
 
+[ Hướng dẫn trên espressif](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html#get-started-set-up-env)
+
 
 # ESP-IDF
 ## Step 1. Install Prerequisites
@@ -48,6 +50,16 @@ Copy and paste the following command to your shell’s profile (`.profile`, `.b
 ## Start a project
 First to export  environment variables for ESP-IDF use this command we already alias in `.bashrc`
 `get_idf`
-type to see option
-`idf.py`
+
+# Attention
+Only after you set-target you can include thing in vscode
+
+`idf.py set-target esp32`
+now configure your project
+`idf.py menuconfig`
+
+## Build the Project
+Build the project by running:
+
+`idf.py build`
 

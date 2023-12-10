@@ -1,12 +1,25 @@
-## video
+## Main source
+### My code
+[My code on github](https://github.com/tNhanDerivative/esp32_wifi_wrapper)
+
+### video
 [video code: 5:47](https://www.youtube.com/watch?v=KV0D8nrsBLg&list=PLnq7JUnBumAz5mxA1SRcEKz-z6Zhsp7cz&index=4)
 
-## github
+### github
 https://github.com/0015/ThatProject/blob/master/MESSAGE/Twilio/0_ESP32TTGO_FIRESTORE_SMS/Network.h
+
+
+## Arduino IDE set up and how to create library
+[[Arduino IDE set up]]
+
+[How to create Arduino Lib](https://roboticsbackend.com/arduino-create-library/)
 
 ## Wifi event (Observer pattern)
 
 https://www.upesy.com/blogs/tutorials/how-to-connect-wifi-acces-point-with-esp32#use-wifi-events-to-have-an-optimized-code
+
+https://techtutorialsx.com/2019/09/01/esp32-wifi-events-station-got-ip-address/
+
 
 
 ```cpp
@@ -48,5 +61,7 @@ public:
 
 #endif
 ```
+
+
 
 ## Friend member of class
