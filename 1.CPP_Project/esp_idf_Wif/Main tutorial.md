@@ -4,7 +4,7 @@
 
 [how to create static library](https://www.youtube.com/watch?v=CdmJ9xAYHno)
 
-![](wifi_programing_model.png )
+![](Wifi_programing_model.png )
 
 ## Initialize TCP/IP stack
 

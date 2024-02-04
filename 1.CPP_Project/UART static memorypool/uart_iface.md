@@ -1,4 +1,13 @@
+## Thiết kế
+Uart iface là để pass uart_impl vào hw_iface
+```cpp
+    using hw_iface_t = HardwarePeripheralWrapper<Impl, uart_n_hw_ports>;
+    using hw_handle_t = hw_iface_t::handle_t;
+    hw_handle_t h{nullptr};
+```
+uart iface sử dụng uart_impl thông qua handle h của hw_iface 
 
+##
 ```cpp
 template <class T>
 bool send(std::span<const T> data)

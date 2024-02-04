@@ -6,7 +6,27 @@ Check if this UART_id is constructed somewhere
 	If Constructed check if Config is the same
 		If so return a weak handle(weak pointer) to that instance
 
-## Static Memory pool
+## Shared pointer and weak pointer
+
+At first I want to create a boolean static array to keep track of shared pointer point to memory but we already have `weak pointer` which keeping track much more efficiently
+When ever we created a handle_t We just assign that handle_t (which is a shared pointer) to weak_handles array.
+```cpp
+using handle_t = std::shared_ptr<Impl>;
+
+auto return_handle = handle_t{ new (p) Impl(std::forward<Args>(args)...),
+						[](Impl* _p){std::destroy_at(_p);} };
+
+weak_handles[idx] = return_handle;
+
+
+
+static std::array<weak_handle_t, N_INSTANCES> weak_handles;
+
+```
+
+
+
+## Memory align
 hw_iface.h
 ```cpp
 alignas(std::alignment_of_v<Impl>) static std::byte instance_memory[N_INSTANCES * sizeof(Impl)];

@@ -1,0 +1,1 @@
+[Youtube FPGA spaker tutorial ](https://www.youtube.com/watch?v=Lzl480XEgFU&list=PL9AgM4KfrwIOi670ATHmgZzqz3Bga4-XN&index=13)
