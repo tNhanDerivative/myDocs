@@ -22,7 +22,7 @@ int main(){
 [[hware_iface#construct_instance()]]
 
 ## Convert Unique ptr to Shared ptr
-[](https://www.nextptr.com/question/qa1257940863/converting-unique_ptr-to-shared_ptr-factory-function-example)
+[Convert unique to share](https://www.nextptr.com/question/qa1257940863/converting-unique_ptr-to-shared_ptr-factory-function-example)
 
 - This flexibility is particularly useful where the function may not know whether the caller wants exclusive or shared ownership of the returned object, like in Factory pattern.
 - 

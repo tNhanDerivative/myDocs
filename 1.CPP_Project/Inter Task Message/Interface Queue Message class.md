@@ -73,3 +73,23 @@ So ... we should delete the default constructor
 ```cpp
  QueueInterface(void) = delete;      
 ```
+
+## n_items_waiting
+```cpp
+size_t n_free_spaces(void) const
+{
+	std::scoped_lock _guard(_send_mutex, _receive_mutex);
+
+	if (*h_queue)
+		return uxQueueSpacesAvailable(h_queue.get());
+	
+	return 0;
+}
+```
+
+We use std::scoped_lock because we  wanna acquire 2 lock so now we won't progress this lock until we got both mutex unlocked
+- Mutable keyword: Sometimes there is requirement to modify one or more data members of class / struct through const function even though you don’t want the function to update other members of class / struct. 
+[mutable](https://www.geeksforgeeks.org/c-mutable-keyword/)
+This member function is a const member function but this function do change the value of the data member, which is the 2 mutex.
+=> Mutex is often mutable
+
