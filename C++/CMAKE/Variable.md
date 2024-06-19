@@ -1,4 +1,6 @@
 ## Link
+
+
 [viblo.asia Cmake](https://viblo.asia/p/dao-dau-voi-cmake-thong-qua-vi-du-07LKXNbelV4#_vi-du-2-mot-project-voi-nhieu-directory-2)
 
 [github: Cmake subdirectory](https://stackoverflow.com/questions/42744315/cmake-with-subdirectories)
@@ -41,3 +43,16 @@ add_executable(testStudent ${SOURCES})
 - `file()`: được sử dụng để thêm source file vào project. `GLOB` (hoặc `GLOB_RECURSE`) sẽ được sử dụng để tạo một danh sách các file thỏa mãn expression được khai báo (ví dụ: `src/*.cpp`) và thêm chúng vào biến SOURCE.
 
 - `add_executable()`: sử dụng biến `SOURCE` thay vì việc sử dụng tham chiếu cụ thể của từng source file để build một chương trình executable là `testStudent`.
+
+
+
+# String and list of string
+a) Use quotes for the arguments that contain file paths (like the first argument containing the executable itself).
+Reasoning: It could contain spaces and could be reinterpreted as separate arguments to the COMMAND call
+
+b) See above, works also if the variable set() did include quotes.
+Use quotes only if you want to concatenate something into a single parameter to be passed to executable that is called.
+
+Reasoning: A variable could contain a list of parameters which - when using quotes - won't be correctly extracted (semicolons instead of spaces)
+
+

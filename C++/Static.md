@@ -16,3 +16,5 @@
 Can't access non-static member variable
 Can't access this->
 
+It also has 1 copy to access static member which only has 1 unique copy
+

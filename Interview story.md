@@ -24,3 +24,8 @@ How I solve the problem
 - The person who radiates positive and never moans.
 - Someone who know boundary
 
+- The student who ready to heard about what I already know again
+- A student who approach everything with a solvable mind set even after you had already spend years thinking about that problem
+-  tương đối thông minh, tự tôn thấp  và được việc
+tự tôn thấp: (khiểm tốn vì trải quá nhiều khó khăn thường hay lo lắng, nói những khó khăn mình ra
+- hôm nay đến đây em có đem code

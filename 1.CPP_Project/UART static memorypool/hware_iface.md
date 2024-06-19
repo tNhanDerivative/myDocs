@@ -13,6 +13,11 @@ When ever we created a handle_t We just assign that handle_t (which is a shared 
 ```cpp
 using handle_t = std::shared_ptr<Impl>;
 
+if (is_constructed(idx))
+	return nullptr;
+
+auto p = p_instance_from_idx(idx);
+
 auto return_handle = handle_t{ new (p) Impl(std::forward<Args>(args)...),
 						[](Impl* _p){std::destroy_at(_p);} };
 
@@ -23,7 +28,15 @@ weak_handles[idx] = return_handle;
 static std::array<weak_handle_t, N_INSTANCES> weak_handles;
 
 ```
+So we check the index if that memory is_constructed() (is owned). Weak_pointer.expired() will return a null value if it's destroyed and we can construct a new share_ptr
 
+```cpp
+    [[nodiscard]] static bool is_constructed(std::size_t idx)
+    {
+        return is_valid_index(idx) ? 
+            (not get_weak_handle(idx).expired()) : false;
+    }
+```
 
 
 ## Memory align

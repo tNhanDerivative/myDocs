@@ -1,7 +1,7 @@
 [video](https://www.youtube.com/watch?v=BYxR2EZZvhc&list=PLowIV8ZSSsAXRAsxyKArbY4EEqvUnYNtn&index=2)
 [github](https://github.dev/howroyd/embedded_cpp20)
 
-## Static declare
+## Assertion and compile time contract
 ```cpp
 static constexpr std::size_t uart_n_hw_ports = static_cast<std::size_t>(UART_ID::UART_INVALID)+1;
 static_assert( (uart_n_hw_ports - 1) < static_cast<std::size_t>(UART_ID::UART_INVALID) );

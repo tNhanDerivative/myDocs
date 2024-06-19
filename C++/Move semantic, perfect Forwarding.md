@@ -1,6 +1,6 @@
 
 # Move semantic
-[Move semantics](https://www.youtube.com/watch?v=Bt3zcJZIalk&t=2179s)
+[Move semantics youtube](https://www.youtube.com/watch?v=Bt3zcJZIalk&t=2179s)
 
 ## ví dụ về vector
 ```cpp
