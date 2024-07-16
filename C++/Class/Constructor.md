@@ -1,0 +1,1 @@
+Constructor can easily realize by not having a return type

@@ -38,7 +38,7 @@ typedef struct {
 ```
 
 
-cần Active Event loop method để tạo thread AO
+cần Active Event loop method để tạo thread AO liên tục đọc Queue để khi có event là dispatch luôn
 
 ```cpp
 static void Active_eventLoop(void *pvParameters) {
