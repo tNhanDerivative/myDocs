@@ -60,7 +60,7 @@ git checkout [release_name]
 git pull origin [release_name]
 ```
 
-This command will delete the branch only if it has been fully merged with the branch you are currently on.
+OPTIONAL: This command will delete the branch only if it has been fully merged with the branch you are currently on.
 ```sh
 git branch -d branch_name
 ```
