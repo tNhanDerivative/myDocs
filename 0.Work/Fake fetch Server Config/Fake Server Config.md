@@ -1,4 +1,5 @@
-
+Old solution 
+in `ServerConfig.cpp` find method  `RetrieveServerConfig`
 
 #  Future Solution
 1. In `ServerConfig.cpp`, replace the `FetchServerConfig()` function with a new function that fetches your fake JSON. For example:

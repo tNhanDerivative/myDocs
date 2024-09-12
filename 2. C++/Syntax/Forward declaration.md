@@ -1,0 +1,2 @@
+
+[[Pimpl Idiom#forward declaration]]

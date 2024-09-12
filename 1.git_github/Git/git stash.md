@@ -2,11 +2,18 @@
 # Source 
 [Nhàn Hơn Cùng Git Stash! - Viblo](https://viblo.asia/p/nhan-hon-cung-git-stash-07LKXM8JZV4)
 
-
+# Stash
 Muốn pull code mới. Ta save code đang làm nhưng chưa commit dc
 
 ```cpp
-git stash
+git stash save "stash message"
+```
+
+ ## stash specific file to different stash
+I'm working on a feature then realize I was coding on release branch
+I want to stash a specific file to specific stash so I could create feature branch and apply on it
+```cpp
+git stash -m "for MDE-977" --  MDEUnmanaged/src/common/MDESystemInfo.cpp
 ```
 
 # Apply git stash

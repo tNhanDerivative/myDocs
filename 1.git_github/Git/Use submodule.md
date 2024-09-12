@@ -1,5 +1,7 @@
 # tutorial
 [What? Why? When? Tutorial Youtube](https://www.youtube.com/watch?v=gSlXo2iLBro&t=295s)
+[Using submodules in Git - Tutorial (vogella.com)](https://www.vogella.com/tutorials/GitSubmodules/article.html)
+
 # Update submodule from Main module
 when you type `git status` and the out put are like this
 ```sh
@@ -20,6 +22,7 @@ submodule: `modified:   owc-ui (new commits)` indicate that this submodule has a
 ```sh
 git submodule update --recursive
 ```
+
 ```sh
 git submodule update --init --recursive
 ```
