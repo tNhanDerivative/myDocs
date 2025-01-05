@@ -1,11 +1,6 @@
 
 Trong bài viết này mình sẽ hướng dẫn các bạn cách sử dụng [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) cho việc tái sử dụng code.
 
-Git Submodules cho phép tạo một (hoặc nhiều) repository bên trong repository hiện tại. Những đoạn code tái sử dụng cho nhiều project thì có thể đặt ra một repository riêng, sau đó nhúng vào trong các project cần sử dụng theo dạng Sub module.
-
-Ví dụ mình có một project **my-project**, có cấu trúc như sau:
-![](git_structure1.png)
-Trong đó mình muốn code nằm trong thư mục _src/library_ có thể tái sử dụng được ở nhiều project, vậy mình sẽ tạo 1 repository mới là **my-library**, và nhúng repo này vào trong **my-project**. Ở các project khác muốn dùng chung code thì cũng nhúng **my-library** vào qua submodules.
 
 Để tạo submodule cho repository **my-project** ta dùng lệnh sau:
 

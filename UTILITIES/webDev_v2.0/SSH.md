@@ -2,7 +2,7 @@
 https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1604
 The first step is to create a key pair on the client machine (usually your computer):
 
-```
+```bash
 ssh-keygen
 
 ```
@@ -16,7 +16,7 @@ Type in your new file `/home/trongnhan/.ssh/< project_name>`
 then copy to the server
 The syntax is:
 
-```
+```bash
 ssh-copy-id username@remote_host
 
 ```
